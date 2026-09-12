@@ -2,6 +2,10 @@
 
 A privacy-first Android personal finance app, planned to bring spending across credit cards and savings accounts into one clear ledger while keeping financial records and processing on the device.
 
+![Pocket Ledger concept screens](./assets/pocket-ledger-concept.jpg)
+
+*Concept UI using entirely synthetic financial data. See [the visual product notes](./VISUAL_PRODUCT.md).*
+
 ## Why I am building it
 
 Money leaves through several accounts, cards, refunds, transfers, and repayments, while the useful record is scattered across alerts and statements. Pocket Ledger is meant to answer a simple question without asking for another financial login: what did I actually spend, and through which account?
@@ -41,7 +45,7 @@ Pocket Ledger is in product and architecture planning. The Android implementatio
 
 ## What this repository is
 
-A public product case study and planned system architecture. See `ARCHITECTURE.md`.
+A public product case study, visual product direction, and planned system architecture. See `VISUAL_PRODUCT.md` and `ARCHITECTURE.md`.
 
 The application source, financial parsing rules, bank-specific templates, test corpus, and all personal financial data stay private. No application code is published here.
 
