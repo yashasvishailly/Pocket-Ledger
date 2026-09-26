@@ -2,7 +2,9 @@
 
 ## Status
 
-This is a design for an Android app that has not entered implementation. It records the intended boundaries and data flow, not a claim about shipped behavior.
+A private Android prototype is in progress at v0.3.6: an on-device SMS ledger, not a Play Store release or a public APK. This document records the intended boundaries and data flow. It is not a component-by-component claim about that build.
+
+v0.3.6 imports SMS, manages accounts, re-checks imported messages, blocks screenshots, and can export a CSV by year. Records stay on the device. Uninstall deletes the ledger. Backup is not implemented.
 
 ## Overview
 
@@ -15,9 +17,9 @@ Pocket Ledger is planned as an on-device pipeline: a user-approved import enters
 - **Normalizer.** Produces a consistent record for amount, direction, merchant or counterparty, time, institution, account type, and masked identifier.
 - **Validation and deduplication.** Drops declined alerts, detects repeated notifications, and flags incomplete or ambiguous records for review.
 - **Reconciliation rules.** Separates real spending from refunds, transfers between owned accounts, and credit-card repayments.
-- **Local ledger.** Stores transactions, accounts, categories, corrections, and import history on the device. Encryption and migration strategy must be settled before implementation.
+- **Local ledger.** Stores transactions, accounts, categories, corrections, and import history on the device. The v0.3.6 prototype keeps this store on the device and deletes it on uninstall. Encryption and migration are still open, and backup is not implemented.
 - **Views and corrections.** Presents combined spending and per-account filters, with manual entry and category correction.
-- **User-controlled export.** A later boundary for an encrypted portable copy. Automatic cloud backup is not part of the design.
+- **User-controlled export.** The private prototype can export a CSV by year when the user asks for it. An encrypted portable backup is not implemented. Automatic cloud backup is not part of the design.
 
 ## Planned data flow
 
@@ -39,11 +41,11 @@ Pocket Ledger is planned as an on-device pipeline: a user-approved import enters
 
 ## Open decisions
 
-- SMS only versus SMS plus Gmail for the first release
+- Gmail or statement import, which are outside the SMS prototype
 - Supported institutions and alert formats
-- Local database and encryption approach
+- Local database encryption and migration
 - Matching rules for partial refunds and multi-part transactions
-- Portable encrypted export and recovery design
+- Encrypted backup and recovery, beyond the current user-started CSV export by year
 
 ## Held back
 
