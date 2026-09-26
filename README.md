@@ -1,6 +1,6 @@
 # Pocket Ledger
 
-A privacy-first Android personal finance app, planned to bring spending across credit cards and savings accounts into one clear ledger while keeping financial records and processing on the device.
+A privacy-first Android personal finance app that brings spending across credit cards and savings accounts into one clear ledger while keeping financial records and processing on the device. A private prototype is in progress; this repository is the public case study.
 
 ![Pocket Ledger concept screens](./assets/pocket-ledger-concept.jpg)
 
@@ -21,7 +21,9 @@ The difficult part is not drawing a chart. It is turning inconsistent transactio
 - **Corrections are first-class.** Manual entries and category corrections belong in the normal workflow.
 - **Avoid false totals.** Declines, duplicates, refunds, owned-account transfers, and credit-card repayments must be handled explicitly.
 
-## Planned first version
+## First-version scope
+
+The list below is the intended first version, not a changelog of the private prototype. SMS import is in progress there; see [Current status](#current-status) for what v0.3.6 actually does.
 
 1. Import transaction alerts from SMS with explicit user permission.
 2. Recognize the bank, account type, masked account identifier, amount, direction, merchant, and timestamp when the message provides them.
@@ -41,7 +43,18 @@ Gmail and statement import are being evaluated, but they are not part of the con
 
 ## Current status
 
-Pocket Ledger is in product and architecture planning. The Android implementation has not started. The next decisions are the first-version import scope and the synthetic message formats needed to test supported banks and cards.
+A private Android prototype is in progress at v0.3.6 (navy ledger redesign). It is an on-device SMS ledger. The build runs on a personal device, and the in-app settings screen reports that version. It is not published on the Play Store, and there is no public APK.
+
+On that device, v0.3.6 can:
+
+- Import transactions from SMS, with permission, and re-check messages already imported
+- Manage accounts
+- Block screenshots
+- Export a CSV by year, started by the user
+
+The ledger stays on the device. Uninstalling the app deletes it. There is no backup yet. Encrypted local storage and encrypted export remain design direction, not a claim about this build. The prototype does not require a Pocket Ledger account, and it does not include cloud analytics or automatic cloud backup.
+
+Parsing quality, reconciliation rules, and backup are still product work. They are not described here as finished.
 
 ## What this repository is
 

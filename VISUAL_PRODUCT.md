@@ -1,6 +1,6 @@
 # Pocket Ledger, visual product direction
 
-> **Status:** concept. Pocket Ledger is still in product and architecture planning. These are illustrative product mockups, not screenshots of a shipped build. Every transaction, account, identifier, and amount shown is synthetic.
+> **Status:** concept visuals. A private Android prototype is in progress at v0.3.6, an on-device SMS ledger with no Play Store listing and no public APK. These images are illustrative product mockups, not screenshots of that build. Every transaction, account, identifier, and amount shown is synthetic.
 
 ![Pocket Ledger concept screens](./assets/pocket-ledger-concept.jpg)
 
@@ -45,7 +45,7 @@ A transaction keeps its category, source, and masked account visible. The user c
 - Show masked account identifiers wherever account context matters.
 - Keep manual correction visible and reversible.
 - Avoid celebratory language that moralizes spending.
-- Never imply that a concept screen is a shipped feature.
+- Never present a concept screen as a screenshot of the private prototype or as a shipped feature.
 
 ## Important states still to design
 
