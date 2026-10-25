@@ -7,8 +7,9 @@ on-device SMS debit import, account and category corrections, an encrypted local
 ledger, CSV export, and passphrase-encrypted backup and restore. This document's
 component layout and broader reconciliation remain design direction.
 
-Test builds also send usage and crash reports after acceptance of the first-launch
-notice. Reporting stays on in that version and includes approximate location from
+Test builds send usage and crash reports only when a nonempty reporting key is
+configured and the first-launch notice has been accepted. The reviewed v0.4.1
+source has no in-app off switch after acceptance. Reports include approximate location from
 the reporting provider's network metadata. Amounts, merchants, account details,
 and SMS text are excluded from those reports.
 
@@ -40,7 +41,7 @@ Pocket Ledger is planned as an on-device pipeline: a user-approved import enters
 ## Trust boundary
 
 - Financial content stays on the Android device.
-- Financial processing requires no account or cloud AI call. Test reporting sends usage and crash events to an external provider after notice acceptance; it remains enabled in that test version.
+- Financial processing requires no account or cloud AI call. Test reporting sends usage and crash events to an external provider only when a nonempty reporting key is configured and the first-launch notice has been accepted. The reviewed v0.4.1 source has no in-app off switch after acceptance; this is not a claim that an unconfigured build sends reports.
 - Imports are opt-in and source-specific.
 - Corrections remain visible and attributable to the user.
 - Synthetic or redacted fixtures are used for development.

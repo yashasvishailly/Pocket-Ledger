@@ -37,7 +37,7 @@ Gmail and statement import are being evaluated, but they are not part of the con
 ## Privacy boundary
 
 - Financial content is processed locally, with no cloud AI processing or automatic cloud backup.
-- Test builds send usage and crash reports after the first-launch notice is accepted. Reporting remains on in that test version; it includes usage events and approximate location derived by the reporting provider from the network address, never amounts, merchants, account details, or SMS text.
+- Test builds send usage and crash reports only when a nonempty reporting key is configured and the first-launch notice has been accepted. The reviewed v0.4.1 source has no in-app off switch after acceptance. Reports include usage events and approximate location derived by the reporting provider from the network address, never amounts, merchants, account details, or SMS text.
 - Real SMS messages, emails, statements, account identifiers, credentials, and signing keys never belong in a public repository.
 - Development uses synthetic or redacted transaction fixtures.
 - Exports are user initiated. The ledger is encrypted on the device; portable backups are passphrase-encrypted. CSV exports are readable files and need a private destination.
@@ -56,10 +56,12 @@ That source implements:
 - User-started CSV export
 - An encrypted on-device ledger protected by Android Keystore
 - Passphrase-encrypted backup and restore through the Android file picker
-- Test-build usage and crash reporting after the first-launch notice is accepted
+- Test-build usage and crash reporting only when a nonempty reporting key is configured and the first-launch notice has been accepted
 
 Financial records and SMS processing stay on the phone. Test reporting is a
-separate network flow and has no off switch after acceptance in that version.
+separate network flow requiring both a configured, nonempty reporting key and
+acceptance of the first-launch notice. The reviewed v0.4.1 source has no in-app
+off switch after acceptance; unconfigured builds do not send these reports.
 Uninstalling removes the local ledger and its key. Recovery requires an exported
 backup and its passphrase; automatic cloud backup is disabled. A CSV is not an
 encrypted backup.
