@@ -1,6 +1,6 @@
 # Pocket Ledger, visual product direction
 
-> **Status:** concept visuals. A private Android prototype is in progress at v0.3.6, an on-device SMS ledger with no Play Store listing and no public APK. These images are illustrative product mockups, not screenshots of that build. Every transaction, account, identifier, and amount shown is synthetic.
+> **Status:** concept visuals. The private Android source reviewed on 22 October 2026 identifies v0.4.1, an on-device SMS ledger with encrypted storage and portable backups. Test-build reporting is described in the README. These images are illustrative product mockups, not screenshots of that build. Every transaction, account, identifier, and amount shown is synthetic.
 
 ![Pocket Ledger concept screens](./assets/pocket-ledger-concept.jpg)
 

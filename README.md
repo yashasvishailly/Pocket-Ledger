@@ -23,7 +23,7 @@ The difficult part is not drawing a chart. It is turning inconsistent transactio
 
 ## First-version scope
 
-The list below is the intended first version, not a changelog of the private prototype. SMS import is in progress there; see [Current status](#current-status) for what v0.3.6 actually does.
+The list below is the intended first version, not a changelog of the private prototype. SMS import is in progress there; see [Current status](#current-status) for what the reviewed v0.4.1 source implements.
 
 1. Import transaction alerts from SMS with explicit user permission.
 2. Recognize the bank, account type, masked account identifier, amount, direction, merchant, and timestamp when the message provides them.
@@ -36,25 +36,39 @@ Gmail and statement import are being evaluated, but they are not part of the con
 
 ## Privacy boundary
 
-- No cloud AI processing, analytics, or automatic cloud backup.
+- Financial content is processed locally, with no cloud AI processing or automatic cloud backup.
+- Test builds send usage and crash reports only when a nonempty reporting key is configured and the first-launch notice has been accepted. The reviewed v0.4.1 source has no in-app off switch after acceptance. Reports include usage events and approximate location derived by the reporting provider from the network address, never amounts, merchants, account details, or SMS text.
 - Real SMS messages, emails, statements, account identifiers, credentials, and signing keys never belong in a public repository.
 - Development uses synthetic or redacted transaction fixtures.
-- Any export must be user initiated; encrypted local storage and encrypted export are part of the design direction.
+- Exports are user initiated. The ledger is encrypted on the device; portable backups are passphrase-encrypted. CSV exports are readable files and need a private destination.
 
 ## Current status
 
-A private Android prototype is in progress at v0.3.6 (navy ledger redesign). It is an on-device SMS ledger. The build runs on a personal device, and the in-app settings screen reports that version. It is not published on the Play Store, and there is no public APK.
+The private Android source reviewed on 22 October 2026 identifies version
+**0.4.1**. This is a source snapshot, not a claim that a particular APK or device
+has been updated. There is no Play Store release described here.
 
-On that device, v0.3.6 can:
+That source implements:
 
-- Import transactions from SMS, with permission, and re-check messages already imported
-- Manage accounts
-- Block screenshots
-- Export a CSV by year, started by the user
+- SMS debit import with permission, review, and re-checking
+- Account names, categories, manual entries, and corrections
+- Screenshot blocking, enabled by default
+- User-started CSV export
+- An encrypted on-device ledger protected by Android Keystore
+- Passphrase-encrypted backup and restore through the Android file picker
+- Test-build usage and crash reporting only when a nonempty reporting key is configured and the first-launch notice has been accepted
 
-The ledger stays on the device. Uninstalling the app deletes it. There is no backup yet. Encrypted local storage and encrypted export remain design direction, not a claim about this build. The prototype does not require a Pocket Ledger account, and it does not include cloud analytics or automatic cloud backup.
+Financial records and SMS processing stay on the phone. Test reporting is a
+separate network flow requiring both a configured, nonempty reporting key and
+acceptance of the first-launch notice. The reviewed v0.4.1 source has no in-app
+off switch after acceptance; unconfigured builds do not send these reports.
+Uninstalling removes the local ledger and its key. Recovery requires an exported
+backup and its passphrase; automatic cloud backup is disabled. A CSV is not an
+encrypted backup.
 
-Parsing quality, reconciliation rules, and backup are still product work. They are not described here as finished.
+The implemented import scope is debits only. Credits, including refunds, are
+excluded; broader reconciliation remains planned work. Parsing accuracy still
+needs review against supported bank alerts.
 
 ## What this repository is
 
